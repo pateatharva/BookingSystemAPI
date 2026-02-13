@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: booking-system-api
+    buildCommand: dotnet build
+    startCommand: dotnet BookingSystemAPI.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: MONGODB_CONNECTION_STRING
+        sync: false
