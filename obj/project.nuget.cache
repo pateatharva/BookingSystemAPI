@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "YH+DyklqyLQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\patea\\source\\repos\\BookingSystemAPI\\BookingSystemAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\patea\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\patea\\.nuget\\packages\\mongodb.bson\\3.6.0\\mongodb.bson.3.6.0.nupkg.sha512",
+    "C:\\Users\\patea\\.nuget\\packages\\mongodb.driver\\3.6.0\\mongodb.driver.3.6.0.nupkg.sha512",
+    "C:\\Users\\patea\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\patea\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
+    "C:\\Users\\patea\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
+  ],
+  "logs": []
+}
