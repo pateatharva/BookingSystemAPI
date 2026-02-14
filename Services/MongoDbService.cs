@@ -10,9 +10,12 @@ namespace BookingSystemAPI.Services
 
 		public MongoDbService(IConfiguration configuration)
 		{
-			var client = new MongoClient(configuration["MongoDbSettings:ConnectionString"]);
-			var database = client.GetDatabase(configuration["MongoDbSettings:DatabaseName"]);
-			_bookingCollection = database.GetCollection<Booking>(configuration["MongoDbSettings:CollectionName"]);
+            var connectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING") ?? configuration["MongoDbSettings:ConnectionString"];
+            var databaseName = configuration["MongoDbSettings:DatabaseName"];
+            var collectionName = configuration["MongoDbSettings:CollectionName"];
+            var client = new MongoClient(connectionString);
+            var database = client.GetDatabase(databaseName);
+            _bookingCollection = database.GetCollection<Booking>(collectionName);
 		}
 
 		// ================= GET ALL BOOKINGS =================
