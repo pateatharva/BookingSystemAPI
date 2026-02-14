@@ -1,0 +1,32 @@
+# Booking Management System API
+
+A professional ASP.NET Core Web API with MongoDB for managing hotel bookings.
+
+## 🎯 Features
+- ✅ CRUD operations (Create, Read, Update, Delete)
+- ✅ Advanced filtering (status, hotel, date range)
+- ✅ Analytics dashboards (pie, bar, line charts)
+- ✅ Pagination support
+- ✅ Async/await for performance
+- ✅ Clean Architecture with Repository Pattern
+
+## 🛠️ Tech Stack
+- **Framework:** ASP.NET Core (.NET 10)
+- **Database:** MongoDB
+- **Frontend:** Razor Pages + Bootstrap 5 + Chart.js
+- **Architecture:** Repository Pattern + Service Layer + Dependency Injection
+
+## 📋 Project Structure
+
+## 🚀 Getting Started
+
+### Prerequisites
+- .NET 10 SDK
+- MongoDB (local or MongoDB Atlas)
+- Visual Studio 2026 / VS Code
+
+### Installation
+
+## 📡 API Endpoints
+
+### CRUD Operations
