@@ -4,21 +4,29 @@ using BookingSystemAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ------------------ PORT CONFIG FOR RENDER ------------------
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+//
+// ================= PORT CONFIG (IMPORTANT FOR RENDER) =================
+//
+
+// If running on Render → use PORT
+// If running locally → fallback to 5000
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// ------------------ SERVICES ------------------
+//
+// ================= SERVICES =================
+//
 
-// Controllers
+// Controllers (API)
 builder.Services
-	.AddControllers()
-	.AddJsonOptions(options =>
-	{
-		options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-	});
+    .AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
-// Razor Pages
+// Razor Pages (UI)
 builder.Services.AddRazorPages();
 
 // Dependency Injection
@@ -28,23 +36,33 @@ builder.Services.AddScoped<IBookingService, BookingService>();
 
 var app = builder.Build();
 
-// ------------------ MIDDLEWARE ------------------
+//
+// ================= MIDDLEWARE PIPELINE =================
+//
 
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Error");
-	app.UseHsts();
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
 
-// IMPORTANT: On Render we DO NOT need HTTPS redirection
-// Because Render already provides HTTPS
-// So disable it to avoid port issues
-
-// app.UseHttpsRedirection();  <-- COMMENTED OUT
+// 🚫 DO NOT USE HTTPS REDIRECTION ON RENDER FREE
+// app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+
+//
+// ================= ROUTING =================
+//
+
+// Make root "/" open Dashboard directly
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Dashboard");
+    return Task.CompletedTask;
+});
 
 app.MapControllers();
 app.MapRazorPages();
